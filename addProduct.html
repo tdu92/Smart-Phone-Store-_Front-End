@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+</head>
+<body>
+
+<div id="khungThemSanPham" class="overlay">
+    <table class="overlayTable table-outline table-content table-header">
+        <tbody><tr>
+            <th colspan="2">Create Product</th>
+        </tr>
+        <tr>
+            <td>ID Product:</td>
+            <td><input type="text" id="maspThem"></td>
+        </tr>
+        <tr>
+            <td>Name Product:</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td>
+                <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
+                <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Brand:</td>
+            <td>
+                <select>
+                    <option value="">Samsung</option>
+                    <option value="tragop">Trả góp</option>
+                    <option value="giamgia">Giảm giá</option>
+                    <option value="giareonline">Giá rẻ online</option>
+                    <option value="moiramat">Mới ra mắt</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="table-footer"> <button onclick="themSanPham()">THÊM</button> </td>
+        </tr>
+        </tbody></table>
+</div>
+</body>
+</html>
