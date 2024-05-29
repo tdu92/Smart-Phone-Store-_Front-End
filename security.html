@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+            integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div id="main">
+
+</div>
+
+<script>
+    // let currentUser= localStorage.getItem("currentUser");
+    // if(!currentUser){showFormLogin()}else{showHome()}
+    showFormLogin()
+    function showFormLogin() {
+        document.getElementById("main").innerHTML =`
+        <input type="text" placeholder="username" id="username">
+    <input type="text" placeholder="password" id="password">
+    <button onclick="login()">Enter</button>`
+    }
+
+    function login(){
+        let username=document.getElementById("username").value;
+        let password=document.getElementById("password").value;
+        let userLogin= {username:username,password:password}
+        axios.post("http://localhost/8080/login", userLogin).then((response)=> {
+            let data= response.data;
+            console.log(data);
+            localStorage.setItem("currentUser",JSON.stringify(data));
+        })
+        showHome();
+    }
+
+    function showHome(){
+        axios.get("http://localhost/8080/users").then((response)=>{
+            let data= response.data;
+            console.log(data);
+        })
+    }
+</script>
+</body>
+</html>
