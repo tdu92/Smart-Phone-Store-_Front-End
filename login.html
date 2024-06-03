@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+            integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <link rel="stylesheet" href="css/user/taikhoan.css">
+</head>
+<body>
+<div class="containTaikhoan" style="transform: scale(1);">
+    <span class="close" ><a href="" style="color: #842029">x</a></span>
+    <div class="taikhoan">
+
+        <ul class="tab-group">
+            <li class="tab active" ><a style="width: 100%" >Đăng nhập</a></li>
+        </ul> <!-- /tab group -->
+
+        <div class="tab-content">
+            <div id="login" style="display: block;">
+                <h1>Chào mừng bạn trở lại!</h1>
+
+                <form >
+
+                    <div class="field-wrap">
+
+                        <input name="username" type="text" required="" autocomplete="off" placeholder="Tên đăng nhập">
+                    </div> <!-- /user name -->
+
+                    <div class="field-wrap">
+
+                        <input name="pass" type="password" required="" autocomplete="off"  placeholder="Mật khẩu" >
+                    </div> <!-- pass -->
+
+                    <p class="forgot"><a href="#">Quên mật khẩu?</a></p>
+
+                    <button type="submit" class="button button-block">Tiếp tục</button>
+
+                </form> <!-- /form -->
+
+            </div> <!-- /log in -->
+        </div>
+    </div>
+</div>
+</body>
+</html>

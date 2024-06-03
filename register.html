@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+            integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <link rel="stylesheet" href="css/user/taikhoan.css">
+</head>
+<body>
+<div class="containTaikhoan" style="transform: scale(1);">
+    <span class="close" ><a href="" style="color: #842029">x</a></span>
+    <div class="taikhoan">
+        <div id="signup" style="display: block;">
+            <h1>Đăng kí miễn phí</h1>
+
+            <form >
+
+                <div class="top-row">
+                    <div class="field-wrap">
+
+                        <input name="ho" type="text" required="" autocomplete="off" placeholder=" Họ">
+                    </div>
+
+                    <div class="field-wrap">
+
+                        <input name="ten" type="text" required="" autocomplete="off" placeholder="Tên">
+                    </div>
+                </div> <!-- / ho ten -->
+
+                <div class="field-wrap">
+
+                    <input name="email" type="email" required="" autocomplete="off" placeholder="Địa chỉ Email">
+                </div> <!-- /email -->
+
+                <div class="field-wrap">
+                    <input name="newUser" type="text" required="" autocomplete="off" placeholder="Tên đăng nhập">
+                </div> <!-- /user name -->
+
+                <div class="field-wrap">
+
+                    <input name="newPass" type="password" required="" autocomplete="off" placeholder="Mật khẩu">
+                </div> <!-- /pass -->
+
+                <button type="submit" class="button button-block">Tạo tài khoản</button>
+
+            </form> <!-- /form -->
+
+        </div> <!-- /sign up -->
+    </div><!-- tab-content -->
+
+</div> <!-- /taikhoan -->
+</body>
+</html>
