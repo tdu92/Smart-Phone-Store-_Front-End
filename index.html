@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bán hàng</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="css/sales.css">
+    <script src="https://kit.fontawesome.com/fbbb6d55bb.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="search-area">
+    <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="search" placeholder="Tìm sản phẩm...">
+    </div>
+    <div class="search-result" id="search-result">
+        <div class="suggest-search">
+        </div>
+    </div>
+
+    <div class="staff-name">
+        <span>Phạm Quý Lộc</span>
+        <button class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="products" >
+        <div class="cart" id="cart">
+
+        </div>
+        <div class="note">
+            <input type="text" id="note" placeholder="Thêm ghi chú">
+        </div>
+    </div>
+
+    <div class="payment-area">
+        <div class="time">
+            <span id="time"></span>
+        </div>
+        <div class="customers">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm khách hàng..." class="customerInOrder">
+                <button class="add-button" onclick="addCustomer()"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="cResult" id="cResult">
+            <div class="suggest-customer">
+            </div>
+        </div>
+        <div>
+            <h3  id="cusInfo"></h3>
+        </div>
+        <div class="payment">
+            <div class="amount" style="display: flex; justify-content: space-between">
+                <h3> Tổng tiền hàng: </h3>
+                <h2 id="totalBefore" style="color: #0070F4"></h2>
+            </div>
+            <div class="discount">
+                <h3> Giảm giá: </h3>
+                <input value = "0" id="discount">
+            </div>
+            <div class="total" style="display: flex; justify-content: space-between">
+                <h3>Khách thanh toán:</h3>
+                <h2 id="totalAfter" style="color: #0070F4"></h2>
+            </div>
+
+        </div>
+        <div class="pay">
+            <button onclick="confirmOrder()" class="pay-button">THANH TOÁN</button>
+        </div>
+    </div>
+</div>
+<div class="addCustomer">
+    <div>
+        <h2 style="text-align: center; padding: 20px">Thêm khách hàng</h2>
+    </div>
+    <div class="cInfo">
+        <div>
+            <span> Khách hàng: </span>
+            <input type="text" id="cName">
+        </div>
+        <div>
+            <span>Số điện thoại: </span>
+            <input type="text" id="cPhone">
+        </div>
+    </div>
+    <div class="cAction">
+        <button class="ok" onclick="addCustomerToDB()">OK</button>
+        <button class="cancel" onclick="close3()">CANCEL</button>
+    </div>
+
+</div>
+<div class="confirm">
+    <div class="information">
+        <div>
+            <h3> HÓA ĐƠN BÁN HÀNG </h3>
+        </div>
+        <div>
+            <h3 id="orderNumber"></h3>
+        </div>
+    </div>
+
+    <div class="action">
+        <button id="OK" class="ok" onclick="finishOrder()">OK</button>
+    </div>
+
+</div>
+<div class="footer">
+    <button class="report-btn" onclick="saleReport()">Báo cáo bán hàng</button>
+</div>
+<div class="overview">
+    <div id="time2"></div>
+    <div style="padding:10px; display: flex; justify-content: flex-end"><button class="close-btn" onclick="close1()"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="orderList" class="orderList">
+    </div>
+</div>
+<div class="orderDetail">
+    <div style="padding:10px; display: flex; justify-content: flex-end">
+        <button class="close-btn" onclick="close2()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div>
+        <h3 style="text-align: center">Thông tin đơn hàng</h3>
+    </div>
+    <div>
+        <h4 style="padding: 10px"> Khách hàng:</h4> <span id="customerName"></span>
+    </div>
+    <div>
+        <h4 style="padding: 10px">Số điện thoại:</h4> <span id="customerPhone"></span>
+    </div>
+    <div>
+        <h4 style="padding: 10px">Địa chỉ:</h4>
+    </div>
+    <div>
+        <h3 style="text-align: center">Chi tiết:</h3>
+    </div>
+    <div id="orderDetail">
+    </div>
+</div>
+
+<script src="phonstorejs.js"></script>
+</body>
+</html>
