@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+            integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+
+</head>
+<body>
+<header>
+    <h2>SmartPhone Store - Admin</h2>
+</header>
+
+<!-- Menu -->
+
+<aside class="sidebar">
+    <ul class="nav">
+        <li class="nav-title">MENU</li>
+        <li class="nav-item"><a class="nav-link"><i class="fa fa-home"></i> Trang Chủ</a></li>
+        <li class="nav-item"><a class="nav-link"  ><i class="fa fa-th-large"></i> Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link "><i class="fa fa-file-text-o"></i> Đơn Hàng</a></li>
+        <li class="nav-item"><a class="nav-link "><i class="fa fa-address-book-o"></i> Khách Hàng</a></li>
+        <li class="nav-item">
+            <hr>
+        </li>
+        <li class="nav-item">
+            <a href="index.html" class="nav-link">
+                <i class="fa fa-arrow-left"></i>
+                Đăng xuất (về Trang chủ)
+            </a>
+        </li>
+    </ul>
+</aside>
+<!-- Khung hiển thị chính-->
+<div class="main">
+    <div class="home" style="display: none;">
+        <div class="canvasContainer"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <canvas id="myChart1" height="416" width="833" class="chartjs-render-monitor" style="display: block; height: 333px; width: 667px;"></canvas>
+        </div>
+
+        <div class="canvasContainer"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <canvas id="myChart2" height="416" width="833" class="chartjs-render-monitor" style="display: block; height: 333px; width: 667px;"></canvas>
+        </div>
+
+        <div class="canvasContainer">
+            <canvas id="myChart3"></canvas>
+        </div>
+
+        <div class="canvasContainer">
+            <canvas id="myChart4"></canvas>
+        </div>
+    </div>
+
+    <!-- Sản Phẩm -->
+
+    <div class="sanpham" style="display: block;">
+        <table class="table-header">
+            <tbody><tr>
+                <!-- Theo độ rộng của table content -->
+                <th title="Sắp xếp" style="width: 5%" >ID <i class="fa fa-sort"></i></th>
+                <th title="Sắp xếp" style="width: 25%" >Name <i class="fa fa-sort"></i></th>
+                <th title="Sắp xếp" style="width: 25%">Image <i class="fa fa-sort"></i></th>
+                <th title="Sắp xếp" style="width: 10%">Price <i class="fa fa-sort"></i></th>
+                <th title="Sắp xếp" style="width: 10%">Quantity<i class="fa fa-sort"></i></th>
+                <th title="Sắp xếp" style="width: 10%">Category <i class="fa fa-sort"></i></th>
+                <th style="width: 15%">Action</th>
+            </tr>
+            </tbody></table>
+
+        <div class="table-content">
+            <table class="table-outline hideImg"><tbody><tr>
+                <td style="width:  5%">1</td>
+                <td style="width: 25%">Sam0</td>
+                <td style="width: 25%">SamSung Galaxy J4+</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 15%">
+                    <div class="tooltip">
+                        <i class="fa fa-wrench" onclick=""></i>
+                        <span class="tooltiptext">Sửa</span>
+                    </div>
+                    <div class="tooltip">
+                        <i class="fa fa-trash" onclick=""></i>
+                        <span class="tooltiptext">Xóa</span>
+                    </div>
+                </td>
+            </tr><tr>
+                <td style="width:  5%">2</td>
+                <td style="width: 25%">Sam0</td>
+                <td style="width: 25%">SamSung Galaxy J4+</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 10%">3.490.000</td>
+                <td style="width: 15%">
+                    <div class="tooltip">
+                        <i class="fa fa-wrench"></i>
+                        <span class="tooltiptext">Sửa</span>
+                    </div>
+                    <div class="tooltip">
+                        <i class="fa fa-trash"></i>
+                        <span class="tooltiptext">Xóa</span>
+                    </div>
+                </td>
+            </tr><tr>
+            </tr></tbody></table></div>
+
+        <div class="table-footer">
+            <form action="addProduct.html">
+                <button ><a href="addProduct.html"></a>
+                    <i class="fa fa-plus-square"></i>
+                    Thêm sản phẩm
+                </button>
+            </form>
+        </div>
+
+
+    </div> <!-- // sanpham -->
+
+
+
+
+</div> <!-- // main -->
+
+</body>
+</html>

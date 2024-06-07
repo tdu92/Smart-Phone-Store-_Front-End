@@ -3,44 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
-            integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+            integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <link rel="stylesheet" href="css/user/taikhoan.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/menuDoc.css">
 </head>
 <body>
 <div id="main">
-
 </div>
-
 <script>
+    showFormLogin()
     // let currentUser= localStorage.getItem("currentUser");
     // if(!currentUser){showFormLogin()}else{showHome()}
-    showFormLogin()
+
     function showFormLogin() {
-        document.getElementById("main").innerHTML =`
-        <input type="text" placeholder="username" id="username">
-    <input type="text" placeholder="password" id="password">
-    <button onclick="login()">Enter</button>`
+        document.getElementById("main").innerHTML = `
+        <div class="containTaikhoan" style="transform: scale(1);">
+    <span class="close" ><a href="" style="color: #842029">x</a></span>
+    <div class="taikhoan">
+
+        <ul class="tab-group">
+            <li class="tab active" ><a style="width: 100%" >Đăng nhập</a></li>
+        </ul> <!-- /tab group -->
+
+        <div class="tab-content">
+            <div id="login" style="display: block;">
+                <h1>Chào mừng bạn trở lại!</h1>
+<div><div class="field-wrap">
+
+    <input name="username" type="text" id="username"   placeholder="Tên đăng nhập">
+</div> <!-- /user name -->
+
+    <div class="field-wrap">
+
+        <input name="pass" type="password" id="password"   placeholder="Mật khẩu" >
+    </div> <!-- pass -->
+
+    <p class="forgot"><a href="#">Quên mật khẩu?</a></p>
+
+    <button class="button button-block" onclick="login()">Tiếp tục</button></div>
+
+
+            </div> <!-- /log in -->
+        </div>
+    </div>
+</div>`
     }
 
-    function login(){
-        let username=document.getElementById("username").value;
-        let password=document.getElementById("password").value;
-        let userLogin= {username:username,password:password}
-        axios.post("http://localhost/8080/login", userLogin).then((response)=> {
-            let data= response.data;
+    function login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let userLogin = {
+            username: username,
+            password: password
+        }
+
+        axios.post("http://localhost:8080/login", userLogin).then((response) => {
+            let data = response.data;
             console.log(data);
-            localStorage.setItem("currentUser",JSON.stringify(data));
+            localStorage.setItem("currentUser", JSON.stringify(data));
+            window.location.href = "homeProduct.html"
         })
-        showHome();
     }
 
-    function showHome(){
-        axios.get("http://localhost/8080/users").then((response)=>{
-            let data= response.data;
-            console.log(data);
-        })
-    }
+
+
 </script>
 </body>
 </html>
